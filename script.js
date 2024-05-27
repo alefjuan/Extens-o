@@ -1,52 +1,62 @@
 document.addEventListener("DOMContentLoaded", function() {
-    getUsers();
+    getCarros();
 });
 
-function getUsers() {
+function getCarros() {
     fetch('read.php')
-    .then(response => response.json()) //aqui retorno as respostas para json
-    .then(data => { //inicio a manipulação dos mesmos
-        const userList = document.getElementById('usuarios-lista');
-        userList.innerHTML = '';
-        data.forEach(usuario => {
-            const userItem = document.createElement('div');
-            userItem.innerHTML = `
-                <p>ID: ${usuario.id}</p>
-                <p>Nome: ${usuario.nome}</p>
-                <p>E-mail: ${usuario.email}</p>
-                <p>Telefone: ${usuario.telefone}</p>
-                <button onclick="deleteUser(${usuario.id})">Excluir</button>
+    .then(response => response.json())
+    .then(data => {
+        const carList = document.getElementById('carros-lista');
+        carList.innerHTML = '';
+        data.forEach(carro => {
+            const carItem = document.createElement('div');
+            carItem.innerHTML = `
+                <p>ID: ${carro.id}</p>
+                <p>Marca: ${carro.marca}</p>
+                <p>Modelo: ${carro.modelo}</p>
+                <p>Ano: ${carro.ano}</p>
+                <p>Preço: R$${carro.preco}</p>
+                <button onclick="deleteCar(${carro.id})">Excluir</button>
+                <button onclick="editCar(${carro.id})">Editar</button>
             `;
-            userList.appendChild(userItem);
+            carList.appendChild(carItem);
         });
     });
 }
 
 function createOrUpdate() {
-    const nomeInput = document.getElementById('nome');
-    const emailInput = document.getElementById('email');
-    const telefoneInput = document.getElementById('telefone');
+    const marcaInput = document.getElementById('marca');
+    const modeloInput = document.getElementById('modelo');
+    const anoInput = document.getElementById('ano');
+    const precoInput = document.getElementById('preco');
+    const carIdInput = document.getElementById('car-id'); // Campo oculto para ID do carro
 
-    // Verificar se os campos existem antes de acessar seus valores
-    if (nomeInput && emailInput && telefoneInput) {
-        const nome = nomeInput.value;
-        const email = emailInput.value;
-        const telefone = telefoneInput.value;
+    if (marcaInput && modeloInput && anoInput && precoInput) {
+        const marca = marcaInput.value;
+        const modelo = modeloInput.value;
+        const ano = anoInput.value;
+        const preco = precoInput.value;
+        const carId = carIdInput.value; // Obter o valor do ID do carro
 
         const formData = new FormData();
-        formData.append('nome', nome);
-        formData.append('email', email);
-        formData.append('telefone', telefone);
+        if (carId) {
+            formData.append('id', carId);
+        }
+        formData.append('marca', marca);
+        formData.append('modelo', modelo);
+        formData.append('ano', ano);
+        formData.append('preco', preco);
 
-        fetch('create_update.php', {
+        fetch(carId ? 'update.php' : 'create.php', { // Alterar URL com base no ID do carro
             method: 'POST',
             body: formData
         })
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                getUsers();
+                getCarros();
                 document.getElementById('crud-form').reset();
+                carIdInput.value = ''; // Limpar o campo de ID após atualização
             } else {
                 alert('Ocorreu um erro ao salvar os dados.');
             }
@@ -56,9 +66,7 @@ function createOrUpdate() {
     }
 }
 
-
-
-function deleteUser(id) {
+function deleteCar(id) {
     fetch('delete.php', {
         method: 'POST',
         body: JSON.stringify({ id: id })
@@ -66,9 +74,27 @@ function deleteUser(id) {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            getUsers();
+            getCarros();
         } else {
-            alert('Ocorreu um erro ao excluir o usuário.');
+            alert('Ocorreu um erro ao excluir o carro.');
         }
+    });
+}
+
+function editCar(id) {
+    fetch('get_car.php?id=' + id)
+    .then(response => response.json())
+    .then(car => {
+        const marcaInput = document.getElementById('marca');
+        const modeloInput = document.getElementById('modelo');
+        const anoInput = document.getElementById('ano');
+        const precoInput = document.getElementById('preco');
+        const carIdInput = document.getElementById('car-id'); // Campo oculto para ID do carro
+
+        marcaInput.value = car.marca;
+        modeloInput.value = car.modelo;
+        anoInput.value = car.ano;
+        precoInput.value = car.preco;
+        carIdInput.value = car.id; // Definir o ID do carro no campo oculto
     });
 }
