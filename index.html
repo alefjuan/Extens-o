@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="styleLogin.css">
 </head>
 <body>
-    <h2>Login</h2>
-    <form action="login.php" method="post">
-        <label for="nome_usuario">Nome de Usuário:</label><br>
-        <input type="text" id="nome_usuario" name="nome_usuario"><br>
-        <label for="senha">Senha:</label><br>
-        <input type="password" id="senha" name="senha"><br><br>
-        <input type="submit" value="Login">
-    </form>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="login.php" method="post">
+            <label for="nome_usuario">Nome de Usuário:</label>
+            <input type="text" id="nome_usuario" name="nome_usuario">
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha">
+            <input type="submit" value="Login">
+        </form>
+    </div>
 </body>
 </html>

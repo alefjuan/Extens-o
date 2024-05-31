@@ -10,14 +10,15 @@ function getCarros() {
         carList.innerHTML = '';
         data.forEach(carro => {
             const carItem = document.createElement('div');
+            carItem.classList.add('car-item');
             carItem.innerHTML = `
-                <p>ID: ${carro.id}</p>
-                <p>Marca: ${carro.marca}</p>
-                <p>Modelo: ${carro.modelo}</p>
-                <p>Ano: ${carro.ano}</p>
-                <p>Preço: R$${carro.preco}</p>
-                <button onclick="deleteCar(${carro.id})">Excluir</button>
-                <button onclick="editCar(${carro.id})">Editar</button>
+                <p><strong>ID:</strong> ${carro.id}</p>
+                <p><strong>Marca:</strong> ${carro.marca}</p>
+                <p><strong>Modelo:</strong> ${carro.modelo}</p>
+                <p><strong>Ano:</strong> ${carro.ano}</p>
+                <p><strong>Preço:</strong> R$${carro.preco}</p>
+                <button class="btn delete-btn" onclick="deleteCar(${carro.id})">Excluir</button>
+                <button class="btn edit-btn" onclick="editCar(${carro.id})">Editar</button>
             `;
             carList.appendChild(carItem);
         });

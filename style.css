@@ -1,35 +1,119 @@
-body {
-    font-family: Arial, sans-serif;
-}
-
-.container {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-input[type="text"],
-input[type="email"],
-button {
-    margin-bottom: 10px;
-    padding: 8px;
-    width: 100%;
+/* Reset básico para remover margens e preenchimentos padrão */
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
+/* Corpo da página com fonte e cor de fundo */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Evitar rolagem da página */
 }
 
-button:hover {
+/* Container principal */
+.container {
+    background-color: #ffffff;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 90%; /* Ajuste a altura conforme necessário */
+}
+
+/* Título principal */
+.container h2 {
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+/* Estilo dos campos do formulário */
+#crud-form {
+    flex-shrink: 0; /* Impedir que o formulário encolha */
+}
+
+#crud-form input[type="text"],
+#crud-form input[type="number"] {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+#crud-form input[type="text"]:focus,
+#crud-form input[type="number"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Estilo do botão de envio */
+#crud-form button {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    margin-top: 1rem;
+}
+
+#crud-form button:hover {
     background-color: #0056b3;
 }
 
-.error {
-    color: red;
+/* Estilo da lista de carros */
+#carros-lista {
+    margin-top: 2rem;
+    text-align: left;
+    flex-grow: 1; /* Permitir que a lista cresça */
+    overflow-y: auto; /* Permitir rolagem vertical */
+    max-height: calc(100% - 4rem); /* Ajustar altura máxima para evitar sobreposição */
+}
+
+/* Estilo dos itens da lista de carros */
+.car-item {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+/* Estilo dos botões de excluir e editar */
+.car-item button {
+    background-color: #dc3545;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: background-color 0.3s;
+    margin-right: 0.5rem;
+}
+
+.car-item button:hover {
+    background-color: #c82333;
+}
+
+.car-item button.edit-btn {
+    background-color: #28a745;
+}
+
+.car-item button.edit-btn:hover {
+    background-color: #218838;
 }
