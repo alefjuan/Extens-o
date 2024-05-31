@@ -1,22 +1,21 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD Básico</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Login</title>
+    <link rel="stylesheet" href="styleLogin.css">
 </head>
 <body>
-    <div class="container">
-        <h2>CRUD Básico</h2>
-        <form id="crud-form">
-            <input type="text" id="nome" placeholder="Nome">
-            <input type="email" id="email" placeholder="E-mail">
-            <input type="text" id="telefone" placeholder="Telefone">
-            <button type="button" onclick="createOrUpdate()">Salvar</button>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="login.php" method="post">
+            <label for="nome_usuario">Nome de Usuário:</label>
+            <input type="text" id="nome_usuario" name="nome_usuario">
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha">
+            <input type="submit" value="Login">
         </form>
-        <div id="usuarios-lista"></div>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>

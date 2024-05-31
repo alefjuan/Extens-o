@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carros</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Estoque de Carros</h2>
+        <form id="crud-form">
+            <input type="hidden" id="car-id"> <!-- Campo oculto para o ID do carro -->
+            <input type="text" id="marca" placeholder="Marca">
+            <input type="text" id="modelo" placeholder="Modelo">
+            <input type="number" id="ano" placeholder="Ano">
+            <input type="number" id="preco" placeholder="Preço">
+            <button type="button" onclick="createOrUpdate()">Salvar</button>
+        </form>
+        <div id="carros-lista"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

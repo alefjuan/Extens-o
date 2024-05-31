@@ -1,12 +1,12 @@
 <?php
 $conn = new mysqli('localhost', 'root', '', 'crud');
 
-$result = $conn->query("SELECT * FROM usuarios");
-$usuarios = [];
+$result = $conn->query("SELECT * FROM carros");
+$carros = [];
 
 while ($row = $result->fetch_assoc()) {
-    $usuarios[] = $row;
+    $carros[] = $row;
 }
 
-echo json_encode($usuarios);
+echo json_encode($carros);
 ?>
