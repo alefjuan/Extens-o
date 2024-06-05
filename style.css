@@ -8,7 +8,7 @@
 /* Corpo da página com fonte e cor de fundo */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f0f2f5;
+    background-color: #121212;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,22 +18,22 @@ body {
 
 /* Container principal */
 .container {
-    background-color: #ffffff;
+    background-color: #1e1e1e;
     padding: 2rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-    max-width: 600px;
-    width: 90%;
+    max-width: 800px;
+    width: 100%;
     text-align: center;
     display: flex;
     flex-direction: column;
-    height: 90%; /* Ajuste a altura conforme necessário */
+    height: 90%; 
 }
 
 /* Título principal */
 .container h2 {
     margin-bottom: 1.5rem;
-    color: #333;
+    color: #ffffff;
 }
 
 /* Estilo dos campos do formulário */
@@ -46,9 +46,12 @@ body {
     width: 100%;
     padding: 0.75rem;
     margin-bottom: 1rem;
-    border: 1px solid #ccc;
+    border: 1px solid #444;
     border-radius: 5px;
     font-size: 1rem;
+    text-align: center;
+    background-color: #333;
+    color: #ffffff;
     transition: border-color 0.3s;
 }
 
@@ -60,8 +63,9 @@ body {
 
 /* Estilo do botão de envio */
 #crud-form button {
-    background-color: #007bff;
+    background-color: #00b109;
     color: #ffffff;
+    width: 60%;
     padding: 0.75rem 1.5rem;
     border: none;
     border-radius: 5px;
@@ -72,13 +76,13 @@ body {
 }
 
 #crud-form button:hover {
-    background-color: #0056b3;
+    background-color: #166602;
 }
 
 /* Estilo da lista de carros */
 #carros-lista {
-    margin-top: 2rem;
-    text-align: left;
+    margin-top: 1rem;
+    text-align: center;
     flex-grow: 1; /* Permitir que a lista cresça */
     overflow-y: auto; /* Permitir rolagem vertical */
     max-height: calc(100% - 4rem); /* Ajustar altura máxima para evitar sobreposição */
@@ -86,16 +90,21 @@ body {
 
 /* Estilo dos itens da lista de carros */
 .car-item {
-    background-color: #f8f9fa;
-    padding: 1rem;
-    border: 1px solid #ddd;
+    background-color: #2c2c2c;
+    padding: 0.6rem;
+    line-height: 1.7em;
+    margin-top: 1em;
+    border: 1px solid #444;
     border-radius: 5px;
     margin-bottom: 1rem;
+    color: #ffffff;
 }
 
 /* Estilo dos botões de excluir e editar */
 .car-item button {
     background-color: #dc3545;
+    margin: 20px;
+    width: 45%;
     color: #ffffff;
     padding: 0.5rem 1rem;
     border: none;
@@ -111,9 +120,9 @@ body {
 }
 
 .car-item button.edit-btn {
-    background-color: #28a745;
+    background-color: #53bae2;
 }
 
 .car-item button.edit-btn:hover {
-    background-color: #218838;
+    background-color: #48a1c4;
 }

@@ -8,7 +8,7 @@
 /* Corpo da página com fonte e cor de fundo */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f0f2f5;
+    background-color: #121212;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,9 +17,9 @@ body {
 
 /* Container do formulário */
 .login-container {
-    background-color: #ffffff;
+    background-color: #1e1e1e;
     padding: 2rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     max-width: 400px;
     width: 100%;
@@ -29,7 +29,7 @@ body {
 /* Título do formulário */
 .login-container h2 {
     margin-bottom: 1.5rem;
-    color: #333;
+    color: #ffffff;
 }
 
 /* Estilo dos rótulos */
@@ -37,7 +37,7 @@ body {
     display: block;
     text-align: left;
     margin-bottom: 0.5rem;
-    color: #666;
+    color: #cccccc;
     font-weight: bold;
 }
 
@@ -47,9 +47,11 @@ body {
     width: 100%;
     padding: 0.75rem;
     margin-bottom: 1.5rem;
-    border: 1px solid #ccc;
+    border: 1px solid #444;
     border-radius: 5px;
     font-size: 1rem;
+    background-color: #333;
+    color: #ffffff;
     transition: border-color 0.3s;
 }
 
